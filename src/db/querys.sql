@@ -34,8 +34,17 @@ CREATE TABLE `sys_products` (
   `sale` decimal(10,2) NOT NULL,
   `image` longblob,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table by product';
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table by product';
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sys_products`
+--
+
+LOCK TABLES `sys_products` WRITE;
+/*!40000 ALTER TABLE `sys_products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sys_products` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_users`
@@ -56,6 +65,15 @@ CREATE TABLE `sys_users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table by Users';
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sys_users`
+--
+
+LOCK TABLES `sys_users` WRITE;
+/*!40000 ALTER TABLE `sys_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sys_users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping events for database 'admindb'
@@ -132,7 +150,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getProduct`()
 BEGIN
 
-     SELECT id, name, category, detail, price, isPromotion, sale
+     SELECT id, name, category, detail, price, isPromotion, sale, image
      FROM sys_products;
 
 END ;;
@@ -210,4 +228,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-09 15:35:46
+-- Dump completed on 2021-06-12 19:36:37

@@ -1,8 +1,17 @@
 import express from "express";
 import controller from './../db/controller';
 import multer from 'multer';
-var upload = multer({ dest: 'uploads/' });
 var router = express.Router();
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname + '-' + Date.now())
+    }
+});
+var upload = multer({ storage: storage })
 
 
 //user ROUTER
